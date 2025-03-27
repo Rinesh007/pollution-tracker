@@ -233,6 +233,7 @@ const Main = () => {
 
           <div className="aqi-container">
             <CircularProgressbar
+              className="aqi-progressbar"
               value={aqiPercentage}
               text={`AQI: ${aqi}`}
               styles={buildStyles({
@@ -275,7 +276,7 @@ const Main = () => {
               </p>
             </div>
           </div>
-
+          {/*
           <div className="pollutant-section">
             <h2>Pollutant Levels</h2>
             <Radar data={radarData} />
@@ -289,7 +290,7 @@ const Main = () => {
           <div
             id="map"
             style={{ width: "100%", height: "400px", marginTop: "20px" }}
-          ></div>
+          ></div>*/}
         </>
       )}
     </div>

@@ -1,89 +1,154 @@
-/* Main container */
 .main-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  align-items: center;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
 .intro {
-  margin-top: 35px;
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   background-color: #2c3e50;
   padding: 10px;
+  width: 100%;
 }
+
 .city-info {
   text-transform: uppercase;
   color: white;
-  font-size: 30px;
+  font-size: 28px;
+  text-align: center;
 }
 
-.popu {
-  height: 60px;
-  width: 60px;
+/* AQI container */
+.aqi-container {
   display: flex;
-  flex-direction: column;
-  font-size: 30px;
-  color: #2c3e50;
-  width: fit-content;
-}
-.population-icon {
-  height: 180px;
-  width: 180px;
+  flex-direction: row;
 
-  display: flex;
-  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
 }
-.population {
+
+/* AQI Progress Bar */
+.aqi-progressbar {
+  height: 400px;
+  width: 400px;
+}
+
+/* Wrapper for the right-side content */
+.attributes-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+}
 
+/* All attributes section */
+.all-attributes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
   align-items: center;
 }
 
-.all-attributes {
+/* Population */
+.population {
   display: flex;
-  flex-direction: row;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26px;
+  color: #2c3e50;
 }
 
+.population-icon {
+  height: 90px;
+  width: 90px;
+}
+
+/* Weather attributes */
 .attributes {
   display: flex;
-  flex-direction: row;
-  font-size: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  font-size: 22px;
   color: #2c3e50;
-
-  position: relative;
-  width: fit-content;
 }
 
-.temp-icon {
-  vertical-align: middle;
-  height: 60px;
-  width: 60px;
-}
-.wind-icon {
-  vertical-align: middle;
-  height: 60px;
-  width: 60px;
-}
+.temp-icon,
+.wind-icon,
 .humidity-icon {
+  height: 45px;
+  width: 45px;
   vertical-align: middle;
-  height: 60px;
-  width: 60px;
+  transition: transform 0.3s ease-in-out;
 }
-.aqi-container {
-  padding: 20px;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  gap: 120px;
-  margin-left: 60px;
-}
+
+/* AQI Description */
 .aqi-desc {
-  font-size: 30px;
+  font-size: 20px;
   color: #2c3e50;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .aqi-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .aqi-progressbar {
+    height: 200px;
+    width: 200px;
+  }
+
+  .city-info {
+    font-size: 24px;
+  }
+
+  .attributes {
+    font-size: 18px;
+  }
+
+  .aqi-desc {
+    font-size: 18px;
+  }
 }
 
 /* Error message */
