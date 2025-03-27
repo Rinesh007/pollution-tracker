@@ -238,15 +238,34 @@ const Main = () => {
               styles={buildStyles({
                 pathColor:
                   aqi <= 2 ? "#2ECC71" : aqi <= 4 ? "#F1C40F" : "#E74C3C",
-                textColor: "#2C3E50", // Change this to your preferred color
+                textColor: "#2C3E50",
                 trailColor: "#D3D3D3",
               })}
             />
             <div>
-              <p>
-                Temperature = {temperature}°<br /> Wind = {wind} m/s
-                <br /> Humidity ={humidity} %
-              </p>
+              <div className="all-attributes">
+                <div className="popu">
+                  <p className="population">
+                    <img src="/icons/groups.png" className="population-icon" />
+                    {population}
+                  </p>
+                </div>
+
+                <div className="attributes">
+                  <p className="chara">
+                    <img className="temp-icon" src="/icons/temperature.png" />
+                    {temperature}°<br />
+                    <img className="wind-icon" src="/icons/wind.png" /> {wind}{" "}
+                    m/s <br />
+                    <img
+                      className="humidity-icon"
+                      src="/icons/humidity.png"
+                    />{" "}
+                    {humidity}%
+                  </p>
+                </div>
+              </div>
+
               <p className="aqi-desc">
                 The air quality index (AQI) for <b>{name}</b> is currently{" "}
                 <b>{aqi}</b>. With a population of approximately{" "}
@@ -257,7 +276,6 @@ const Main = () => {
             </div>
           </div>
 
-          {/*
           <div className="pollutant-section">
             <h2>Pollutant Levels</h2>
             <Radar data={radarData} />
@@ -271,7 +289,7 @@ const Main = () => {
           <div
             id="map"
             style={{ width: "100%", height: "400px", marginTop: "20px" }}
-          ></div>*/}
+          ></div>
         </>
       )}
     </div>
